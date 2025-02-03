@@ -88,15 +88,23 @@ paths:
       summary: put products
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                name: Biskuit Gandum
-                description: Biskuit yang dibuat dengan gandum utuh
-                price: '8000'
-                stock: 20
-                category: 6e350341-97a9-43b3-a14b-8061e8ad5c2b
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: string
+                stock:
+                  type: string
+                id_categories:
+                  type: string
+                  format: binary
+                picture:
+                  type: string
       security:
         - bearerAuth: []
       parameters:
@@ -415,3 +423,4 @@ paths:
           description: Successful response
           content:
             application/json: {}
+
